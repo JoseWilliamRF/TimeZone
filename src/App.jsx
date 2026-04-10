@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import Collection from './components/Collection';
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <Navbar></Navbar>
 
       <Hero></Hero>
+      <Collection></Collection>
 
       {/* Aqui entrará o Carrossel com os Logos em SVG */}
 

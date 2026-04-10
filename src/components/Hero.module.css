@@ -1,15 +1,12 @@
 .heroContainer {
   position: relative;
   width: 100%;
-  /* Trava a altura para não vazar a tela e não dar scroll */
   height: 100vh;
   display: flex;
   flex-direction: column;
-  /* Isso empurra todo o bloco de conteúdo para a parte de BAIXO da tela */
   justify-content: flex-end;
   align-items: center;
   overflow: hidden;
-  /* Cria uma margem no rodapé para o texto não encostar no fundo da tela */
   padding-bottom: 5vh;
 }
 
@@ -37,14 +34,11 @@
 
 .mainWatchImage {
   position: absolute;
-  /* Subimos o relógio um pouco para o texto bater na pulseira */
   top: 42%;
   left: 50%;
   width: 100%;
-  /* Aumentamos o tamanho base drasticamente */
   max-width: 750px;
   z-index: 2;
-  /* Removemos o scale() daqui para o max-width ditar o tamanho real */
   transform: translate(-50%, -50%);
   animation: float 6s ease-in-out infinite;
   pointer-events: none;
@@ -52,7 +46,6 @@
 
 .contentLayer {
   position: relative;
-  /* Fica na frente do relógio (z-index 2) e do fundo (1) */
   z-index: 3;
   max-width: 800px;
   display: flex;
@@ -73,7 +66,7 @@
 
 .heroDescription {
   font-size: 1rem;
-  color: white; /* Um cinza levemente mais claro que o aaaaaa */
+  color: white;
   line-height: 1.6;
   max-width: 720px;
   margin-bottom: 2.5rem;
