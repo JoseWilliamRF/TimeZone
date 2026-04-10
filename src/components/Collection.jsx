@@ -11,8 +11,10 @@ function Collection() {
   const [activeIndex, setActiveIndex] = useState(0);
   const sectionRef = useRef(null);
 
-  // A Inteligência do Fade-in
+  //  Fade-in
   useEffect(() => {
+    const currentSection = sectionRef.current;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -22,13 +24,15 @@ function Collection() {
       },
       { threshold: 0.2 },
     );
-    if (sectionRef.current) observer.observe(sectionRef.current);
+
+    if (currentSection) observer.observe(currentSection);
+
     return () => {
-      if (sectionRef.current) observer.unobserve(sectionRef.current);
+      if (currentSection) observer.unobserve(currentSection);
     };
   }, []);
 
-  // A Inteligência das Setas
+  // Setas
   const nextWatch = () => {
     if (activeIndex < watchesData.length - 1) setActiveIndex(activeIndex + 1);
   };
