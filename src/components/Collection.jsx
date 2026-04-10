@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 import styles from './Collection.module.css';
 import { watchesData } from '../data/collectionsData';
 
@@ -6,33 +6,13 @@ import { watchesData } from '../data/collectionsData';
 import TopLogos from './TopLogos';
 import BrandFilter from './BrandFilter';
 import WatchCarousel from './WatchCarousel';
+import { useFadeIn } from '../hooks/useFadeIn';
 
 function Collection() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const sectionRef = useRef(null);
 
-  //  Fade-in
-  useEffect(() => {
-    const currentSection = sectionRef.current;
+  const sectionRef = useFadeIn();
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          observer.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.2 },
-    );
-
-    if (currentSection) observer.observe(currentSection);
-
-    return () => {
-      if (currentSection) observer.unobserve(currentSection);
-    };
-  }, []);
-
-  // Setas
   const nextWatch = () => {
     if (activeIndex < watchesData.length - 1) setActiveIndex(activeIndex + 1);
   };

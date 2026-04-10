@@ -10,7 +10,7 @@ import omegaLogo from '../assets/icons/omega.svg';
 function TopLogos() {
   return (
     <div className={styles.topBar}>
-      <p className={styles.supportedText}>SUPPORTED BRAND</p>
+      <p className={styles.supportedText}>MARCAS</p>
       <div className={styles.logosRow}>
         <img src={hublotLogo} alt="Hublot" />
         <img src={patekLogo} alt="Patek Philippe" />

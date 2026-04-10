@@ -6,7 +6,7 @@ function BrandFilter({ activeIndex }) {
   return (
     <div className={styles.leftColumn}>
       <h2 className={styles.sectionTitle}>
-        New <br /> collection
+        Nova <br /> Coleção
       </h2>
       <ul className={styles.brandFilter}>
         {brandsList.map((brandName, index) => {

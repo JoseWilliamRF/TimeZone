@@ -4,7 +4,7 @@ import TransparentgiantWatch from '../assets/images/relogio-transparente.png';
 
 function Hero() {
   return (
-    <section className={styles.heroContainer}>
+    <section id="home" className={styles.heroContainer}>
       <div className={styles.backgroundLayer}></div>
 
       <img

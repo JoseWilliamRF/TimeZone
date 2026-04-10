@@ -34,10 +34,10 @@ function Navbar() {
           <a href="#shop">Shop</a>
         </li>
         <li>
-          <a href="#about">About</a>
+          <a href="#about">Sobre</a>
         </li>
         <li>
-          <a href="#contact">Contact</a>
+          <a href="#contact">Contato</a>
         </li>
       </ul>
 
