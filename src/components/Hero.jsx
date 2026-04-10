@@ -6,14 +6,16 @@ function Hero() {
   return (
     <section className={styles.heroContainer}>
       <div className={styles.backgroundLayer}></div>
+
+      <img
+        src={TransparentgiantWatch}
+        alt="Relógio Exclusivo Timezone"
+        className={styles.mainWatchImage}
+      />
+
       <div className={styles.contentLayer}>
-        <img
-          src={TransparentgiantWatch}
-          alt="background"
-          className={styles.mainWatchImage}
-        />
         <h1 className={styles.heroTitle}>
-          Descubra a Elegância Atempora <br />
+          Descubra a Elegância Atemporal <br />
           com a Timezone
         </h1>
         <p className={styles.heroDescription}>
@@ -22,11 +24,12 @@ function Hero() {
           apenas uma maneira de marcar o tempo — eles refletem seu estilo,
           precisão e requinte.
         </p>
-      </div>
 
-      <div className={styles.actionButtons}>
-        <button className={styles.primaryBtn}>Compre Agora</button>
-        <button className={styles.secondaryBtn}>Nova Coleção</button>
+        {/* BOTÕES AGORA ESTÃO JUNTO COM O TEXTO */}
+        <div className={styles.actionButtons}>
+          <button className={styles.primaryBtn}>Compre Agora</button>
+          <button className={styles.secondaryBtn}>Nova Coleção</button>
+        </div>
       </div>
     </section>
   );
