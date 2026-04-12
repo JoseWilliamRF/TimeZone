@@ -7,26 +7,49 @@ function WatchCarousel({ activeIndex, nextWatch, prevWatch }) {
   return (
     <div className={styles.rightColumn}>
       <div className={styles.controls}>
-        <button onClick={prevWatch} className={styles.arrowBtn}>
+        <button
+          onClick={prevWatch}
+          className={styles.arrowBtn}
+          data-ga-category="Navegação"
+          data-ga-action="clique_seta_esquerda"
+          data-ga-label="Carrossel"
+        >
           ←
         </button>
-        <button onClick={nextWatch} className={styles.arrowBtn}>
+        <button
+          onClick={nextWatch}
+          className={styles.arrowBtn}
+          data-ga-category="Navegação"
+          data-ga-action="clique_seta_direita"
+          data-ga-label="Carrossel"
+        >
           →
         </button>
       </div>
 
       <div className={styles.carousel}>
         {watchesData.map((watch, index) => (
-          <WatchCard
+          <div
             key={watch.id}
-            watch={watch}
-            isSpotlight={index === activeIndex}
-          />
+            data-ga-category="Vitrine"
+            data-ga-action="clique_ver_mais"
+            data-ga-label={watch.brand}
+          >
+            {/* O WatchCard fica protegido aqui dentro, apenas com as coisas do React */}
+            <WatchCard watch={watch} isSpotlight={index === activeIndex} />
+          </div>
         ))}
       </div>
 
       <div className={styles.seeMoreWrapper}>
-        <button className={styles.seeMoreBtn}>Ver mais →</button>
+        <button
+          className={styles.seeMoreBtn}
+          data-ga-category="Vitrine"
+          data-ga-action="clique_ver_mais"
+          data-ga-label="Clicou Ver Mais"
+        >
+          Ver mais →
+        </button>
       </div>
     </div>
   );
