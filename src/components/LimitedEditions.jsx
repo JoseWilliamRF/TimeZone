@@ -12,10 +12,8 @@ function LimitedEditions() {
       id="limited"
       ref={sectionRef}
       className={`${styles.limitedContainer} fade-in`}
-      // Injetamos a imagem de fundo diretamente no estilo inline para facilitar a dinâmica
       style={{ backgroundImage: `url(${bgImage})` }}
     >
-      {/* Máscara de escurecimento para garantir a leitura do texto */}
       <div className={styles.overlay}></div>
 
       <div className={styles.topRightContent}>

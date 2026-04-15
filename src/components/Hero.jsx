@@ -1,11 +1,19 @@
 import React from 'react';
 import styles from './Hero.module.css';
 import TransparentgiantWatch from '../assets/images/relogio-transparente.png';
+import BgVideo from '../assets/images/background2.mp4';
 
 function Hero() {
   return (
     <section id="home" className={styles.heroContainer}>
-      <div className={styles.backgroundLayer}></div>
+      <video
+        className={styles.backgroundLayer}
+        src={BgVideo}
+        autoPlay
+        loop
+        muted
+        playsInline
+      />
 
       <img
         src={TransparentgiantWatch}
@@ -25,7 +33,6 @@ function Hero() {
           precisão e requinte.
         </p>
 
-        {/* BOTÕES AGORA ESTÃO JUNTO COM O TEXTO */}
         <div className={styles.actionButtons}>
           <button className={styles.primaryBtn}>Compre Agora</button>
           <button className={styles.secondaryBtn}>Nova Coleção</button>
