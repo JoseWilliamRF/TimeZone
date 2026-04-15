@@ -1,16 +1,104 @@
-# React + Vite
+# 🕒 TimeZone - Alta Relojoaria
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![React](https://img.shields.io/badge/React-18-blue.svg)
+![Vite](https://img.shields.io/badge/Vite-5.0-purple.svg)
+![Deploy](https://img.shields.io/badge/Deploy-Vercel-black.svg)
+![License](https://img.shields.io/badge/License-MIT-green.svg)
 
-Currently, two official plugins are available:
+> Uma Landing Page de luxo desenvolvida com foco implacável em performance, responsividade avançada (Mobile-First) e coleta inteligente de métricas.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 📑 Índice
 
-## React Compiler
+- [O Projeto e Motivação](#-o-projeto-e-motivação)
+- [Visualização](#-visualização)
+- [Funcionalidades e Desafios Superados](#-funcionalidades-e-desafios-superados)
+- [Tecnologias](#-tecnologias)
+- [Como Rodar Localmente](#-como-rodar-localmente)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🎯 O Projeto e Motivação
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+O **TimeZone** foi criado para explorar arquiteturas de UI/UX de alta complexidade sem o uso de bibliotecas de componentes prontas. O objetivo principal foi resolver desafios reais de interface em dispositivos móveis modernos (telas 20:9) e implementar um rastreamento de dados (Analytics) totalmente desacoplado da lógica visual.
+
+---
+
+## 📱 Visualização
+
+### Desktop
+
+![Preview Desktop](./preview/previewDesktop.png)
+
+### Mobile
+
+![Preview Mobile](./preview/previewCelular.png)
+
+---
+
+## ⚙️ Funcionalidades e Desafios Superados
+
+- **Arquitetura de Analytics Escalonável (GA4):** Implementação do padrão de _Delegação de Eventos_ global. Um único espião no `App.jsx` monitora toda a aplicação via atributos `data-ga-action`, mantendo os componentes React totalmente limpos.
+- **Fim do "Layout Shift" no Mobile:** Dispositivos recentes sofrem com pulos de tela no scroll. A substituição do `100vh` por `100svh` ancorou a interface perfeitamente no mobile.
+- **Carrossel Híbrido (React + CSS):** Ao invés de importar libs pesadas, a movimentação do catálogo de relógios foi feita combinando `flex: 0 0 100%` no CSS e injeção dinâmica de `transform: translateX` no estado do React para deslize nativo a 60fps.
+- **Efeito Spotlight 3D:** Uso do `requestAnimationFrame` para calcular e renderizar o eixo X/Y do mouse, criando profundidade interativa nos cards de desktop.
+
+---
+
+## 🛠️ Tecnologias
+
+Projeto focado puramente no domínio sólido do ecossistema de desenvolvimento e interfaces web:
+
+- **Core:** React 18 / JavaScript (ES6+)
+- **Build Tool:** Vite
+- **Estilização:** CSS3 Modules (Escopo isolado para evitar vazamento de estilos)
+- **Ferramentas:** React-GA4 (Métricas)
+
+---
+
+## 🚀 Como Rodar Localmente
+
+## **Pré-requisitos:** Node.js (v18+) e NPM instalados.
+
+## 📂 Estrutura de Pastas
+
+```text
+src/
+├── components/
+│   ├── BrandFilter.jsx      # Filtro de marcas em grid 3x3 (Mobile)
+│   ├── Collection.jsx       # Seção principal do catálogo
+│   ├── Collection.module.css
+│   ├── Hero.jsx             # 1ª dobra com background em vídeo
+│   ├── Hero.module.css
+│   ├── LimitedEditions.jsx  # Banner final com overlay
+│   ├── LimitedEditions.module.css
+│   ├── Navbar.jsx           # Header com efeito blur
+│   ├── Navbar.module.css
+│   ├── TopLogos.jsx         # Logos em grid 3x2 (Mobile)
+│   ├── WatchCard.jsx        # Card isolado com efeito 3D
+│   └── WatchCarousel.jsx    # Lógica de movimentação lateral
+├── data/
+│   └── collectionsData.js   # Mock de dados dos relógios
+├── hooks/
+│   └── useFadeIn.js         # Hook customizado de animação on-scroll
+├── App.css
+├── App.jsx                  # Cérebro e Hub de Rastreamento (GA4)
+├── index.css
+└── main.jsx
+```
+
+## 👨‍💻 Autor
+
+Desenvolvido por **José William R. Figueira**.
+Frontend Developer com forte background em arquitetura estrutural, apaixonado por traduzir regras de negócio complexas em interfaces de alta performance, clean code e UX/UI impecável.
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/josewilliam-dev/)
+
+---
+
+## 📄 Licença
+
+Este projeto está sob a licença [MIT](https://choosealicense.com/licenses/mit/). Sinta-se livre para clonar e utilizar como base para seus próprios estudos e evoluções no ecossistema React.
+
+```
+
+```
