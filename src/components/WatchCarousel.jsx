@@ -29,7 +29,7 @@ function WatchCarousel({ activeIndex, nextWatch, prevWatch }) {
 
       <div
         className={styles.carousel}
-        style={{ transform: `translateX(-${activeIndex * 100}%)` }}
+        style={{ '--active-index': activeIndex }}
       >
         {watchesData.map((watch, index) => (
           <div

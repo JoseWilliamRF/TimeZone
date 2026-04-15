@@ -8,6 +8,7 @@
   justify-content: space-between;
   overflow: hidden;
 }
+
 /* --- TOPO: LOGOS --- */
 .topBar {
   text-align: center;
@@ -32,17 +33,18 @@
 
 .logosRow img {
   height: 45px;
-  transition: opacity 0.3s ease;
+  transition: all 0.3s ease;
   filter: grayscale(100%) brightness(200%);
 }
+
 .logosRow img:hover {
   opacity: 1;
+  transform: translateY(-5px);
   background-image: radial-gradient(
     circle at center,
     rgba(60, 60, 60, 1) 0%,
     rgba(0, 0, 0, 0) 70%
   );
-  transform: translateY(-5px);
 }
 
 /* --- CONTEÚDO PRINCIPAL --- */
@@ -90,7 +92,7 @@
   transform: translateX(10px);
 }
 
-/* --- COLUNA DIREITA (Carrossel) --- */
+/* --- CARROSSEL (DESKTOP) --- */
 .rightColumn {
   width: 75%;
   position: relative;
@@ -110,7 +112,7 @@
 }
 
 .arrowBtn {
-  background-color: transparent;
+  background: transparent;
   color: #ffffff;
   border: 1px solid #ffffff;
   border-radius: 50%;
@@ -130,10 +132,12 @@
 .carousel {
   display: flex;
   gap: 0.5rem;
+  justify-content: flex-start;
   transition: transform 0.5s ease;
+  transform: none; /* Mantém parado no Desktop */
 }
 
-/* O RELÓGIO PADRÃO (Inativo) */
+/* --- CARDS DOS RELÓGIOS --- */
 .watchCard {
   min-width: 220px;
   display: flex;
@@ -146,6 +150,7 @@
   position: relative;
   z-index: 1;
 }
+
 .watchImage {
   width: 100%;
   height: 250px;
@@ -160,36 +165,19 @@
   letter-spacing: 1px;
 }
 
+/* --- ESTADO SPOTLIGHT (UNIFICADO) --- */
 .spotlight {
   opacity: 1;
-  transform: scale(1.05) translateY(-10px);
+  z-index: 5;
+  cursor: pointer;
+  border-radius: 20px;
   background: radial-gradient(
     circle at center,
     rgba(60, 60, 60, 1) 0%,
     rgba(0, 0, 0, 0) 75%
   );
-  border-radius: 20px;
-  z-index: 5;
-  cursor: pointer;
-}
-
-.spotlight .watchImage {
-  filter: drop-shadow(0 20px 20px rgba(0, 0, 0, 0.9));
-}
-
-.spotlight {
-  opacity: 1;
-  transform: perspective(1000px) scale(1.05) translateY(-10px) rotateX(0deg)
-    rotateY(0deg);
-  background: radial-gradient(
-    circle at center,
-    rgba(60, 60, 60, 1) 0%,
-    rgba(0, 0, 0, 0) 75%
-  );
-  border-radius: 20px;
-  z-index: 5;
-  cursor: pointer;
-
+  /* Base do transform que o JS irá manipular */
+  transform: perspective(1000px) scale(1.05) translateY(-10px);
   transition:
     transform 0.1s ease-out,
     background 0.4s ease,
@@ -198,7 +186,6 @@
 
 .spotlight .watchImage {
   filter: drop-shadow(0 20px 20px rgba(0, 0, 0, 0.9));
-  transition: filter 0.3s ease;
 }
 
 .spotlight:hover {
@@ -213,6 +200,7 @@
   filter: drop-shadow(0 30px 40px rgba(0, 0, 0, 1));
 }
 
+/* --- BOTÃO VER MAIS --- */
 .seeMoreWrapper {
   display: flex;
   justify-content: flex-end;
@@ -221,7 +209,7 @@
 }
 
 .seeMoreBtn {
-  background-color: transparent;
+  background: transparent;
   color: #ffffff;
   border: 1px solid #ffffff;
   padding: 0.8rem 2rem;
@@ -236,47 +224,29 @@
 .seeMoreBtn:hover {
   background-color: rgba(255, 255, 255, 0.1);
   transform: translateX(10px);
-} /* --- RESPONSIVIDADE MOBILE (ARQUITETURA DEFINITIVA) --- */
+}
+
+/* --- RESPONSIVIDADE MOBILE (ARQUITETURA FINAL) --- */
 @media screen and (max-width: 768px) {
   .collectionContainer {
     min-height: 100svh;
     padding: 12vh 5% 5vh 5%;
-    display: flex;
-    flex-direction: column;
     align-items: center;
   }
 
-  .topBar {
-    width: 100%;
-    margin-bottom: 2rem;
-  }
-
   .logosRow {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
     gap: 1.5rem 0;
   }
 
   .logosRow a,
   .logosRow img {
     flex: 0 0 30%;
-    display: flex;
-    justify-content: center;
     height: 24px;
-    object-fit: contain;
   }
 
-  .mainContent {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
+  .mainContent,
   .leftColumn {
     width: 100%;
-    display: flex;
     flex-direction: column;
     align-items: center;
   }
@@ -285,7 +255,6 @@
     font-size: 1.2rem;
     text-align: center;
     margin-bottom: 1.5rem;
-    width: 100%;
   }
 
   .brandFilter {
@@ -295,12 +264,10 @@
     width: 100%;
     justify-items: center;
     margin-bottom: 1.5rem;
-    padding: 0;
   }
 
   .brandFilter li {
     font-size: 0.9rem;
-    width: 100%;
     text-align: center;
   }
 
@@ -311,53 +278,41 @@
   }
 
   .controls {
-    display: flex;
+    order: -1;
     justify-content: center;
     width: 100%;
-    gap: 2rem;
     margin-bottom: 2rem;
-    order: -1;
   }
+
   .rightColumn {
     width: 100%;
     max-width: 320px;
     overflow: hidden;
-    position: relative;
-    display: flex;
-    flex-direction: column;
+    margin-right: 0;
   }
 
   .carousel {
-    display: flex;
-    flex-wrap: nowrap;
-    width: 100%;
-    gap: 0;
-    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    --card-width: 100%;
+    --gap: 0px;
+    transform: translateX(
+      calc(-1 * var(--active-index) * (var(--card-width) + var(--gap)))
+    );
   }
 
   .carousel > div {
-    flex: 0 0 100%;
-    min-width: 100%;
-    display: flex;
-    justify-content: center;
+    flex: 0 0 var(--card-width);
   }
 
   .watchCard {
     flex: 0 0 100%;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transform: scale(1);
     opacity: 1;
+    transform: scale(1);
+    justify-content: center;
   }
 
   .watchImage {
-    width: auto;
-    height: 250px;
-    max-width: 100%;
-    object-fit: contain;
+    height: 220px;
     margin-bottom: 1rem;
   }
 
@@ -366,8 +321,6 @@
   }
 
   .seeMoreWrapper {
-    width: 100%;
-    display: flex;
     justify-content: center;
     margin-top: 1.5rem;
   }
