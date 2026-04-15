@@ -122,3 +122,43 @@
     transform: translate(-50%, -50%);
   }
 }
+
+/* --- RESPONSIVIDADE MOBILE --- */
+@media screen and (max-width: 768px) {
+  .heroContainer {
+    height: auto;
+    min-height: 100svh;
+    justify-content: center;
+    padding-bottom: 2vh;
+  }
+
+  .mainWatchImage {
+    top: 32%;
+    width: 90%;
+  }
+
+  .contentLayer {
+    margin-top: auto;
+  }
+
+  .heroTitle {
+    font-size: 1.5rem;
+  }
+
+  .heroDescription {
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+  }
+
+  .actionButtons {
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+  }
+
+  .primaryBtn,
+  .secondaryBtn {
+    width: 100%;
+    padding: 1rem;
+  }
+}

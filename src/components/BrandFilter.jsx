@@ -6,7 +6,11 @@ function BrandFilter({ activeIndex }) {
   return (
     <div className={styles.leftColumn}>
       <h2 className={styles.sectionTitle}>
-        Nova <br /> Coleção
+        Nova{' '}
+        <span className={styles.mobileBr}>
+          <br />
+        </span>{' '}
+        Coleção
       </h2>
       <ul className={styles.brandFilter}>
         {brandsList.map((brandName, index) => {
